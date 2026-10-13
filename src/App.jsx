@@ -72,7 +72,10 @@ function Login() {
           onClick={() =>
             supabase.auth.signInWithOAuth({
               provider: "github",
-              options: { redirectTo: window.location.origin },
+              options: {
+                redirectTo: window.location.origin,
+                queryParams: { prompt: "select_account" },
+              },
             })
           }
         >
